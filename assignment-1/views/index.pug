@@ -1,0 +1,23 @@
+extends layout 
+  
+block flickr
+    .row
+        each image in images 
+            .col 
+                a(href=image.p_url)
+                    img(src=image.b_url, alt=image.title, width="100%")
+    br
+
+block content    
+    each article in articles 
+        div
+            .row.gx-5
+                .col-md-6.mb-4
+                    img(src=article.urlToImage alt="" width="100%")
+
+                .col-md-6.mb-4
+                    h4
+                        strong #{article.title}
+                    p.text-muted
+                        | #{article.description}
+                    a(href=article.url) #{article.source.name}
